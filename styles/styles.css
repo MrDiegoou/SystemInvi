@@ -53,8 +53,7 @@ form h1 {
 }
 
 /* Input por medio de escritura */
-input,
-select {
+input {
   width: calc(100% - 2em); /* Restar el padding para obtener el ancho correcto */
   padding: 8px;
   margin: 4px;
@@ -63,6 +62,7 @@ select {
   border-radius: 5px;
   border: 2px wheat solid;
   box-shadow: 0 0 0.8em gray;
+  background-color: white;
 }
 
 /*politica de privacidad*/
@@ -228,4 +228,8 @@ button:hover span:after {
     max-width: none; /* Eliminado el límite de ancho máximo */
     margin: 30px auto; /* Ajusté el margen para pantallas pequeñas */
   }
-}
+  
+  /* Estilos para el input responsivo */
+  input {
+    width: calc(100% - 2em); /* Restar el padding para obtener el ancho correcto */
+   

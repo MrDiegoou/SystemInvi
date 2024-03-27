@@ -104,7 +104,7 @@
                                 Fecha de última actualización: 27/03/2024
                             </p>
                             
-                            <a href="#" class="modal__close">Cerrar Modal</a>
+                            <a href="#" class="modal__close">Cerrar</a>
                         </div>
                     </section>
                 </form>
