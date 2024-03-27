@@ -52,9 +52,10 @@ form h1 {
   text-align: start;
 }
 
-/* Imput por medio de escritura */
-input {
-  width: 100%; /* Cambiado para ocupar todo el ancho disponible */
+/* Input por medio de escritura */
+input,
+select {
+  width: calc(100% - 2em); /* Restar el padding para obtener el ancho correcto */
   padding: 8px;
   margin: 4px;
   outline: none;
@@ -62,8 +63,6 @@ input {
   border-radius: 5px;
   border: 2px wheat solid;
   box-shadow: 0 0 0.8em gray;
-
-  /*background-color: rgb(226, 226, 226);*/
 }
 
 /*politica de privacidad*/
@@ -180,7 +179,7 @@ form option {
 /* boton envio */
 button {
   width: 100%; /* Cambiado para ocupar todo el ancho disponible */
-  margin: 2px;
+  margin: 2px 0; /* Ajustado el margen vertical */
   padding: 8px;
   background: rgb(226, 226, 226);
   outline: none;
