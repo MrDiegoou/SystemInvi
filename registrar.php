@@ -10,14 +10,14 @@ if (isset($_POST['register'])) {
     // Obtén los datos del formulario y realiza la validación
     $nombres = $_POST['nombres'];
     $apellidos = $_POST['apellidos'];
-    $cedula = $_POST['cedula'];
-    $seleccionar = $_POST['seleccionar'];
-    $area = $_POST['area'];
-    $eps = $_POST['eps'];
-    $numero = $_POST['numero']; 
-
+    $doc_identi = $_POST['doc_identi'];
+    $motivo = $_POST['motivo']; 
+    $visita = $_POST['visita'];
+    $nombre_emergencia = $_POST['nombre_emergencia'];
+    $telefono_emergencia = $_POST['telefono_emergencia'];
+    
     // Validación de datos
-    if (empty($nombres) || empty($apellidos) || empty($cedula)  || empty($area) || empty($eps) || empty($numero)) {
+    if (empty($nombres) || empty($apellidos) || empty($doc_identi) || empty($visita) || empty($nombre_emergencia) ||  empty($telefono_emergencia)) {
         echo 'Por favor completa todos los campos.';
     } else {
         try {
@@ -32,23 +32,23 @@ if (isset($_POST['register'])) {
             }
 
             // Validar formato de la cédula
-            if (!preg_match('/^[0-9]{7,10}$/', $cedula)) {
+            if (!preg_match('/^[0-9]{7,10}$/', $doc_identi)) {
                 throw new Exception('Formato de cédula incorrecto. Debe ser una cédula válida.');
-            }            
+            }
 
-            // Validar formato del número
-            if (!preg_match('/^[0-9]{9,10}$/', $numero)) {
-                throw new Exception('Formato de número incorrecto. Debe tener entre 9 y 10 dígitos.');
+            // Validar formato del teléfono 
+            if (!preg_match('/^[0-9]{10}$/', $telefono_emergencia)) {
+                throw new Exception('Formato de número incorrecto. Debe tener 10 dígitos.');
             }
 
             // Crea la consulta SQL preparada
-            $consulta = "INSERT INTO usuarios (nombres, apellidos, cedula, seleccionar, area, eps, numero, fecha, hora) VALUES (?, ?, ?, ?, ?, ?, ?, CURDATE(), CURTIME())";
+            $consulta = "INSERT INTO usuarios (nombres, apellidos, doc_identi, motivo, visita, nombre_emergencia, telefono_emergencia, fecha, hora) VALUES (?, ?, ?, ?, ?, ?, ?, CURDATE(), CURTIME())";
 
             // Prepara la consulta
             $stmt = mysqli_prepare($conex, $consulta);
 
             // Vincula los parámetros a la consulta
-            mysqli_stmt_bind_param($stmt, "ssissss", $nombres, $apellidos, $cedula, $seleccionar, $area, $eps, $numero);
+            mysqli_stmt_bind_param($stmt, "ssissss", $nombres, $apellidos, $doc_identi, $motivo, $visita, $nombre_emergencia, $telefono_emergencia);
 
             // Ejecuta la consulta
             if (mysqli_stmt_execute($stmt)) {

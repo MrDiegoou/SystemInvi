@@ -1,4 +1,4 @@
-/* Diseño container y container registro */
+/* Estilos para la sección de container y container registro */
 
 body {
   background-image: none;
@@ -11,7 +11,8 @@ body {
 }
 
 .container {
-  width: 750px;
+  width: 90%; /* Cambiado para que sea más adaptable */
+  max-width: 750px; /* Añadido para limitar el ancho máximo */
   margin: 100px auto;
   background: white;
   border-radius: 11px;
@@ -19,8 +20,9 @@ body {
 }
 
 .registro {
-  margin: 180px auto;
-  width: 500px;
+  margin: 50px auto; /* Ajustado para pantallas pequeñas */
+  width: 90%; /* Cambiado para que sea más adaptable */
+  max-width: 500px; /* Añadido para limitar el ancho máximo */
   border: none;
   background-color: white;
   padding: 7px;
@@ -52,7 +54,7 @@ form h1 {
 
 /* Imput por medio de escritura */
 input {
-  min-width: 32em;
+  width: 100%; /* Cambiado para ocupar todo el ancho disponible */
   padding: 8px;
   margin: 4px;
   outline: none;
@@ -62,6 +64,17 @@ input {
   box-shadow: 0 0 0.8em gray;
 
   /*background-color: rgb(226, 226, 226);*/
+}
+
+/*politica de privacidad*/
+
+a {
+  text-align: center;
+  margin: 5px;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /*dropdow */
@@ -166,7 +179,7 @@ form option {
 
 /* boton envio */
 button {
-  width: 250px;
+  width: 100%; /* Cambiado para ocupar todo el ancho disponible */
   margin: 2px;
   padding: 8px;
   background: rgb(226, 226, 226);
@@ -206,10 +219,14 @@ button:hover span:after {
 /*Responsive */
 @media only screen and (max-width: 900px) {
   .container {
+    width: 90%; /* Cambiado para que sea más adaptable */
+    max-width: none; /* Eliminado el límite de ancho máximo */
     margin: 50px auto; /* Ajusté el margen para pantallas pequeñas */
   }
   
   .registro {
+    width: 90%; /* Cambiado para que sea más adaptable */
+    max-width: none; /* Eliminado el límite de ancho máximo */
     margin: 30px auto; /* Ajusté el margen para pantallas pequeñas */
   }
 }

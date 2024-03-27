@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E&M Registrer</title>
+    <title>Registro de E&M</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="icon" href="./Storage_pc/eym.png">
+    <link rel="stylesheet" href="./politicas/politicas.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -19,7 +20,7 @@
                 <form method="post" id="form">
                     <img src="./Storage_pc/eym.png" class="logo">
                     <h1>Bienvenido a <span class="jkl">Espacio & Mercadeo</span></h1>
-                    <h3>Te presentamos nuestro emocionante sistema de ingreso dinámico, diseñado para hacer que entrar y salir sea más fácil y divertido que nunca!</h3>
+                    <h3>Nos encantaría conocerte un poco mejor para ofrecerte una experiencia aún más personalizada. Por favor, completa tus datos para que podamos facilitar tu ingreso y asegurarnos de que tengas la mejor visita posible. ¡Gracias y que tengas un día estupendo!</h3>
                     <p id="warnings" class="warnings"></p>
 
                     <label class="lbl1">Nombres</label>
@@ -28,74 +29,90 @@
                     <label class="lbl1">Apellidos</label>
                     <input type="text" name="apellidos" id="apellidos" autofocus autocomplete="off" required maxlength="20" pattern="[A-Za-zÁÉÍÓÚáéíóú\s]+" title="Solo se permiten letras y espacios">
 
-                    <label class="lbl1">Cedula</label>
-                    <input type="number" name="cedula" id="cedula" autofocus autocomplete="off" required maxlength="10" pattern="[0-9]+" title="Solo se permiten números">
+                    <label class="lbl1">Documento de identificación</label>
+                    <input type="number" name="doc_identi" id="cedula" autofocus autocomplete="off" required maxlength="10" pattern="[0-9]+" title="Solo se permiten números">
 
-                    <label class="lbl1">Seleccionar</label>
+
+                    <label class="lbl1">Motivo de la visita</label>
                     <div class="dropdown">
                         <div class="select">
-                            <span class="selected" id="selectedSeleccionar">Seleccionar</span>
+                            <span class="selected" id="selectedMotivo">-</span>
                             <div class="carect">
                                 <ul class="menu">
-                                    <li onclick="selectOption('seleccionar', 'Ingreso')">Ingreso</li>
-                                    <li onclick="selectOption('seleccionar', 'Salida')">Salida</li>
+                                    <li onclick="selectOption('motivo', 'Contratación')">Contratación</li>
+                                    <li onclick="selectOption('motivo', 'Nómina')">Nómina</li>
+                                    <li onclick="selectOption('motivo', 'Selección')">Selección</li>
+                                    <li onclick="selectOption('motivo', 'Área Comercial')">Área Comercial</li>
+                                    <li onclick="selectOption('motivo', 'Operaciones')">Operaciones</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
-                    <label class="lbl1">Area</label>
-                    <div class="dropdown">
-                        <div class="select">
-                            <span class="selected" id="selectedArea">Area</span>
-                            <div class="carect">
-                                <ul class="menu">
-                                    <li onclick="selectOption('area', 'Talento Humano')">Talento Humano</li>
-                                    <li onclick="selectOption('area', 'Administración y Financiera')">Administración y Financiera</li>
-                                    <li onclick="selectOption('area', 'Operación Logística')">Operación Logística</li>
-                                    <li onclick="selectOption('area', 'Trade y BTL')">Trade y BTL</li>
-                                    <li onclick="selectOption('area', 'BI')">BI</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <label class="lbl1">¿Podría indicarnos qué funcionario le atenderá o con quién viene?</label>
+                    <input type="text" name="visita" id="visita" autofocus autocomplete="off" required maxlength="20" pattern="[A-Za-zÁÉÍÓÚáéíóú\s]+" title="Solo se permiten letras y espacios">
 
+                    <input type="hidden" name="motivo" id="hiddenMotivo">
 
-                    <label class="lbl1">EPS</label>
-                    <div class="dropdown">
-                        <div class="select">
-                            <span class="selected" id="selectedEps">EPS</span>
-                            <div class="carect">
-                                <ul class="menu">
-                                    <li onclick="selectOption('eps', 'Salud Total')">Salud Total</li>
-                                    <li onclick="selectOption('eps', 'Sura')">Sura</li>
-                                    <li onclick="selectOption('eps', 'Nueva EPS')">Nueva EPS</li>
-                                    <li onclick="selectOption('eps', 'Coosalud')">Coosalud</li>
-                                    <li onclick="selectOption('eps', 'Capital Salud')">Capital Salud</li>
-                                    <li onclick="selectOption('eps', 'Famisanar')">Famisanar</li>
-                                    <li onclick="selectOption('eps', 'Compensar')">Compensar</li>
-                                    <li onclick="selectOption('eps', 'EPM')">EPM</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <br>
 
-                    <input type="hidden" name="seleccionar" id="hiddenSeleccionar">
-                    <input type="hidden" name="area" id="hiddenArea">
-                    <input type="hidden" name="eps" id="hiddenEps">
+                    <h1><label class="lbl1">En caso de emergencia avisar a:</label></h1>
+
+                    <label class="lbl1">Nombres</label>
+                    <input type="text" name="nombre_emergencia" id="nombre_emergencia" autofocus autocomplete="off" required maxlength="50" pattern="[A-Za-zÁÉÍÓÚáéíóú\s]+" title="Solo se permiten letras y espacios">
 
                     <label class="lbl1">Número de teléfono</label>
-                    <input type="number" name="numero" id="number" class="info" autofocus autocomplete="off">
-                    <p id="warnings2"></p>
+                    <input type="number" name="telefono_emergencia" id="telefono_emergencia" class="info" autofocus autocomplete="off">
+
+                    <br>
+
+
 
                     <br><br>
                     <button type="submit" name="register" id="register"><span>Enviar</span></button>
                     <br><br>
+
+                    <div class="hero__texts">
+                        <a href="#" class="hero__cta">Politicas de privacidad</a>
+                    </div>
+
+                    <section class="modal">
+                        <div class="modal__container">
+                            <h2 class="modal__title">Política de Privacidad para Espacio & Mercadeo</h2>
+                            <p class="modal__paragraph"> Recopilación de Datos:
+                                Recopilamos datos personales de manera legal y transparente, con el consentimiento del individuo.
+                                Los datos pueden incluir nombre, documento de identidad, dirección y otros detalles relevantes.
+
+                                <br>
+                                1. Uso de Datos:
+                                - Utilizamos los datos para los fines específicos para los que fueron proporcionados.
+                                Esto incluye la prestación de servicios, gestión de clientes y cumplimiento legal.
+
+                                <br>
+                                2. Protección de Datos:
+                                - Adoptamos medidas de seguridad para proteger los datos contra acceso no autorizado o uso indebido.
+
+                                <br>
+                                3. Derechos de los Individuos:
+                                - Respetamos los derechos de acceso, rectificación y eliminación de datos personales.
+
+                                <br>
+                                4. Divulgación de Datos:
+                                - No compartimos datos con terceros sin consentimiento, a menos que la ley lo exija.
+                                
+                                <br>
+                                Fecha de última actualización: 27/03/2024
+                            </p>
+                            
+                            <a href="#" class="modal__close">Cerrar Modal</a>
+                        </div>
+                    </section>
                 </form>
             </center>
         </div>
     </div>
 
+    <script src="./politicas/politicas.js"></script>
     <script>
         function selectOption(inputName, value) {
             document.getElementById("selected" + inputName.charAt(0).toUpperCase() + inputName.slice(1)).textContent = value;
@@ -103,7 +120,6 @@
         }
     </script>
     <script src="./js/button.js"></script>
-    <script src="./js/.js"></script>
     <script src="./js/menu.js"></script>
 </body>
 

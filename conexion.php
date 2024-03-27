@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "ADMIN";
-$database = "system_qr";
+$database = "systeminv";
 
 // Crear conexión
 $conex = mysqli_connect($servername, $username, $password, $database);
