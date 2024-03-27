@@ -47,7 +47,7 @@ form h1 {
 /* organizacion de labels (Nombre, apellido, cedula, area, eps, correo, numero)*/
 .lbl1 {
   display: block;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   padding: 8px;
   margin-right: 50px;
